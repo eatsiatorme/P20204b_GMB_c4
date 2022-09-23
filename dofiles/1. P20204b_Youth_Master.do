@@ -9,8 +9,8 @@ clear all
 // Project Globals
 global proj "P20204b" // Project Code
 global proj_name "P20204b_GMB" // Shorthand Project name
-global round "Midline" // Round of Data Collection
-global cycle "C3"
+global round "Endline" // Round of Data Collection
+global cycle "C2"
 global tool "Youth"
 
 
@@ -41,14 +41,14 @@ if "`c(username)'"=="NathanSivewright" {
 	global timezone = 1
 global scto_workspace "C:\Users\/`c(username)'\SurveyCTO Desktop Local Storage\"
 global local_path "$scto_workspace\/${proj_name}_Local\/${round}\/${cycle}\/${tool}\"
-global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB_c3\dofiles"
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB_c4\dofiles"
 }
 
 if "`c(username)'"=="ElikplimAtsiatorme" {
 	global timezone = 1
 global scto_workspace "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\"
 global local_path "$scto_workspace\/${proj_name}_Local\/${round}\/${cycle}\/${tool}\"
-global dofiles "C:\Users\ElikplimAtsiatorme\Documents\GitHub\P20204_GMB\P20204_GMB_c3\dofiles"
+global dofiles "C:\Users\ElikplimAtsiatorme\Documents\GitHub\P20204_GMB\P20204_GMB_c4\dofiles"
 }
 
 global unique_id ApplicantID // Unique ID of interviews
@@ -61,8 +61,8 @@ global fname "commentsx" // Name of the 'comments' variable in the qx
 global project_path "$ONEDRIVE\P20204b_EUTF_GMB - Documents\"
 
 global qx "$ONEDRIVE\P20204b_EUTF_GMB - Documents\03_Questionnaires\01_Midline\Programming\Tekki_Fii_PV_220627.xlsx" // Enter the latest version of the form
-global form_id "Tekki_Fii_PV_3_Final" // Enter the form_id from the SurveyCTO survey form
-global form_title "Tekki_Fii_PV_3_Final" // Enter the form_title from the SurveyCTO survey form
+global form_id "Tekki_Fii_PV_5_Final" // Enter the form_id from the SurveyCTO survey form
+*global form_title "Tekki_Fii_PV_3_Final" // Enter the form_title from the SurveyCTO survey form
 
 global local_partner "CepRass" // Enter shorthand name of Local partner
 
