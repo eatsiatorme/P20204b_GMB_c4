@@ -200,7 +200,7 @@ if ${run_follow_up} {
 
 /* <============= HFC 6. Check skip patterns and survey logic =============> */
 
-if ${run_logic} {
+ if ${run_logic} {
   ipachecklogic ${variable6}, ///
     assert(${assert6}) ///
     condition(${if_condition6}) ///

@@ -21,7 +21,7 @@ foreach l of local l_enum {
 * 1. Creating Data Entry Progress Sheet
 ********************************************************************************
 
-import delimited using "$sample_list\Sample - Cycle 3.csv", varnames(1) clear 
+import delimited using "$sample_list\sample.csv", varnames(1) clear 
 
 keep id_key treatment
 rename id_key ApplicantID
@@ -34,11 +34,11 @@ label val submission L_submission
 replace complete = 0 if complete == .
 tempfile masterfield
 save `masterfield'
-keep ApplicantID submission ${supervisor_id} ${enumerator_id} submissiondate call_status _merge
+keep ApplicantID submission ${supervisor_id} ${enumerator_id} submissiondate status _merge
 
 drop _merge 
 
-order ApplicantID submission call_status submissiondate ${supervisor_id} ${enumerator_id}
+order ApplicantID submission status submissiondate ${supervisor_id} ${enumerator_id}
 
 export excel using "$progress\Data Progress.xlsx", sheet("caselist", modify) cell(A2) keepcellfmt
 export excel using "$lp_folder\Data Progress.xlsx", sheet("caselist", modify) cell(A2) keepcellfmt
@@ -73,10 +73,10 @@ putexcel B10=`r(mean)', nformat(number)
 putexcel set "$progress\Data Progress.xlsx", modify sheet("status summary")
 
 *
-gen interview_status= 1 if (call_status==1) // Completed
-replace interview_status= 2 if (call_status==2) // Respondent Reached but not complete
-replace interview_status = 3 if (inlist(call_status,3,4)) // Not reached
-replace interview_status = 4 if (call_status==5) // Refused
+gen interview_status= 1 if (status==1) // Completed
+replace interview_status= 2 if (status==2) // Respondent Reached but not complete
+replace interview_status = 3 if (inlist(status,3,4)) // Not reached
+replace interview_status = 4 if (status==5) // Refused
 label def l_interview_status 1 "Completed" 2 "Respondent Reached but not complete" 3 "Not reached" 4 "Refused", replace
 label val interview_status l_interview_status
 *
@@ -134,10 +134,10 @@ putexcel B10=`r(mean)', nformat(number)
 putexcel set "$lp_folder\Data Progress.xlsx", modify sheet("status summary")
 
 *
-gen interview_status= 1 if (call_status==1) // Completed
-replace interview_status= 2 if (call_status==2) // Respondent Reached but not complete
-replace interview_status = 3 if (inlist(call_status,3,4)) // Not reached
-replace interview_status = 4 if (call_status==5) // Refused
+gen interview_status= 1 if (status==1) // Completed
+replace interview_status= 2 if (status==2) // Respondent Reached but not complete
+replace interview_status = 3 if (inlist(status,3,4)) // Not reached
+replace interview_status = 4 if (status==5) // Refused
 label def l_interview_status 1 "Completed" 2 "Respondent Reached but not complete" 3 "Not reached" 4 "Refused", replace
 label val interview_status l_interview_status
 *

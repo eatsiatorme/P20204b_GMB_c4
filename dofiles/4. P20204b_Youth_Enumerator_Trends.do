@@ -16,9 +16,9 @@ global outcome "$outcome_vars_bin $outcome_vars_cont"
 
 
 
-replace duration_m=. if call_status!=1
+replace duration_m=. if status!=1
 
-gen status_1 = (call_status==1)
+gen status_1 = (status==1)
 
 *bysort interview_date z1: egen interview_per_day = total(completed) // completed => status==1
 *bysort interview_date z1: egen hours_per_day = total(duration_m) // completed => status==1

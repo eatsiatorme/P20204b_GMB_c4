@@ -120,7 +120,7 @@ foreach var of varlist ta_* {
 **************************************************
 * VARIABLE PREPARATION
 **************************************************
-clonevar ApplicantID = id
+clonevar ApplicantID = id_key
 destring ApplicantID, replace
 *drop id
 order ApplicantID, first
@@ -135,7 +135,7 @@ profit_month_?
 duration 
 total_month_inc 
 ave_month_inc 
-treatment_group
+treatment
 sum_b3 
 sum_current_bus 
 b20* 
@@ -153,7 +153,7 @@ foreach u of num 1/`jobs_roster_rows' {
 }
 
 
-clonevar treatment = treatment_group
+*clonevar treatment = treatment_group
 
 
 ds, has(type numeric)
@@ -168,7 +168,7 @@ foreach var of varlist `r(varlist)' {
 }
 
 
-destring id phone_call_duration emp_inc_month_? emp_inkind_month_? sales_month_? profit_month_? duration total_month_inc ave_month_inc treatment_group sum_b3 sum_current_bus b20* emp_ilo, replace
+destring id_key duration emp_inc_month_? emp_inkind_month_? sales_month_? profit_month_? duration total_month_inc ave_month_inc treatment sum_b3 sum_current_bus b20* emp_ilo, replace
 
 clonevar completiondate = endtime
 destring completiondate, replace 
@@ -183,6 +183,7 @@ format `var' %tc
 }
 */
 
+/*
 local ymdhs_time_strings "attempt_1_time attempt_2_time attempt_3_time attempt_4_time attempt_5_time attempt_6_time"
 foreach var of varlist `ymdhs_time_strings' {
 gen `var'_dt=clock(`var',"YMDhms",2025)
@@ -190,11 +191,11 @@ drop `var'
 rename `var'_dt `var'
 format `var' %tc
 }
+*/
 
+drop if id_key==.
 
-drop if id==.
-
-gen phone_call_duration_m = phone_call_duration/60 // Phone call duration in 60 mins
+*gen duration_m = duration/60 // Phone call duration in 60 mins
 gen duration_m = duration/60 // Phone call duration in 60 mins
 
 
@@ -246,7 +247,7 @@ tabdisp z1, c(days_worked total_surveys_done daily_avg) format(%9.2f) center
 **************************************************
 * RESHAPING PREVIOUS ATTEMPTS - ENSURE UNIQUE ID
 **************************************************
-gen completed_interview=(call_status==1) // CHANGE THIS TO A PROPER COMPLETION VARIABLE
+gen completed_interview=(a6!=.) // CHANGE THIS TO A PROPER COMPLETION VARIABLE
 bysort ApplicantID: egen completed_any=max(completed_interview)
 
 duplicates tag ApplicantID, gen(dup) // Tag multiple submissions
@@ -440,7 +441,7 @@ clonevar num_econ_ref = b2
 replace num_econ_ref=0 if num_econ_ref==. & completed_interview==1
 label var num_econ_ref "Number of economic activities over reference period"
 
-/*
+
 **** Life Satisfaction (Cantril Ladder)
 **** This is a preliminary analysis. Further categorization into ;'Thriving (7+)' , 'Struggling (6-5)' and 'Suffering (4-)'
 egen life_satisfaction_total = rowmean(p1 p2 p3)
@@ -460,8 +461,8 @@ label var life_satisfaction_future "Future Life Satisfaction"
 
 egen gse_score = rowmean(n1 n2 n3 n4 n5 n6)
 label var gse_score "Generalized Self Efficacy Score"
-*/
-/*
+
+
 **** Financial Literacy Scale
 ****
 gen r1_correct = 1 if r1 ==200
@@ -526,7 +527,7 @@ label variable shock_exposure "Mean schock exposure"
 cap drop ATR					
 egen ATR= rowmean(f3_?)
 label variable ATR "Ability to Recover"
-*/
+
 
 
 
@@ -544,10 +545,11 @@ label var treatment "Treatment group of Respondent (Pre-populated)"
 label def L_Treat 2 "Treatment (TVET + BD)" 1 "Treatment (TVET)" 0 "Control"
 label val treatment L_Treat
 
+/*
 label var treatment_group "Treatment group of Respondent (Pre-populated)"
 label def Treat_lbl  1 "Treatment" 0 "Control"
 label val treatment_group Treat_lbl
-
+*/
 label var consent "Respondent Consent"
 
 label var id1a "id1a. First Name"
@@ -1015,7 +1017,7 @@ while "`*'" != "" {
 
 
 *label def call_status 1 "Completed" 2 "Answered, but not by respondent" 3 "No Answer" 4 "Number does not work" , replace
-/*
+
 gen status = 1 if completed=="YES"
 replace status = 2 if partially_completed_1=="YES"
 replace status = 3 if partially_completed_2=="YES"
@@ -1024,9 +1026,9 @@ replace status = 5 if untracked=="YES"
 
 label def L_status_final 1 "Completed" 2 "Partially Completed - Started" 3 "Partially Completed - Not Started" 4 "Refused" 5 "Untracked"
 label val status L_status_final
-*/
 
-gen completed = (call_status==1)
+
+gen complete = (status==1)
 
 *gen duration_m = duration / 60
 
@@ -1083,7 +1085,7 @@ order
 ApplicantID
 treatment
 formdef_version
-call_status
+status
 id2 
 id3 
 id5
@@ -1335,14 +1337,14 @@ lab var enum_ID "Enumerator ID"
 **************************************************************
 * To understand better who actualy belongs to treatment group, respondents who were expected to be part of the treatment group but indicated during the midline indicated that they did not participate in the training were questioned again about the participation by rephrasing the equation. 
 **************************************************************
-/*
+
 replace tekki_fii_section = "1" if confirmed_attended !=""
 replace tekki_fii_section = "1" if tekkifii_complete == 1
 
-label var call_status "Status of midline survey [Completed/Not Completed]"
+label var status "Status of midline survey [Completed/Not Completed]"
 label var confirmed_attended "Confirmed that attended Tekki Fii Training"
 label var tekkifii_complete "Confirmed that completed Tekki Fii Training"
-*/
+
 
 
 

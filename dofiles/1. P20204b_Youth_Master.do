@@ -18,10 +18,10 @@ global tool "Youth"
 * SETTINGS
 ********************************************************************************
 global review = 0
-global hfc = 0
-global data_progress = 0
-global bc = 0
-global trends = 0
+global hfc = 1
+global data_progress = 1
+global bc = 1
+global trends = 1
 ********************************************************************************
 ** FIXED GLOBALS (DO NOT EDIT)
 ********************************************************************************
@@ -41,14 +41,14 @@ if "`c(username)'"=="NathanSivewright" {
 	global timezone = 1
 global scto_workspace "C:\Users\/`c(username)'\SurveyCTO Desktop Local Storage\"
 global local_path "$scto_workspace\/${proj_name}_Local\/${round}\/${cycle}\/${tool}\"
-global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204_GMB_c4\dofiles"
+global dofiles "C:\Users\/`c(username)'\Documents\GitHub\P20204b_GMB_c4\dofiles"
 }
 
 if "`c(username)'"=="ElikplimAtsiatorme" {
 	global timezone = 1
 global scto_workspace "C:\Users\/`c(username)'\OneDrive - C4ED\Dokumente\Desktop\"
 global local_path "$scto_workspace\/${proj_name}_Local\/${round}\/${cycle}\/${tool}\"
-global dofiles "C:\Users\ElikplimAtsiatorme\Documents\GitHub\P20204_GMB\P20204_GMB_c4\dofiles"
+global dofiles "C:\Users\ElikplimAtsiatorme\Documents\GitHub\P20204_GMB\P20204b_GMB_c4\dofiles"
 }
 
 global unique_id ApplicantID // Unique ID of interviews
@@ -60,9 +60,9 @@ global fname "commentsx" // Name of the 'comments' variable in the qx
 
 global project_path "$ONEDRIVE\P20204b_EUTF_GMB - Documents\"
 
-global qx "$ONEDRIVE\P20204b_EUTF_GMB - Documents\03_Questionnaires\01_Midline\Programming\Tekki_Fii_PV_220627.xlsx" // Enter the latest version of the form
-global form_id "Tekki_Fii_PV_5_Final" // Enter the form_id from the SurveyCTO survey form
-*global form_title "Tekki_Fii_PV_3_Final" // Enter the form_title from the SurveyCTO survey form
+global qx "$ONEDRIVE\P20204b_EUTF_GMB - Documents\03_Questionnaires\03_Endline\Programming\Tekki_Fii_PV_Endline_2.xlsx" // Enter the latest version of the form
+global form_id "Tekki_Fii_PV_5" // Enter the form_id from the SurveyCTO survey form
+global form_title "Tekki_Fii_PV_5" // Enter the form_title from the SurveyCTO survey form
 
 global local_partner "CepRass" // Enter shorthand name of Local partner
 
@@ -99,23 +99,23 @@ global data_anon "$project_path\02_Analysis\02_Data\/${round}\/${cycle}\/${tool}
 // Enter here variables that constitute PII
 #d ;
 global personal_info
-phone_call_log
-phone*
-phone_*_name
-phone_*_rel
+*phone_call_log
+*phone*
+*phone_*_name
+*phone_*_rel
 full_name
-respondents_details
-phones_label_*
-phonenumber_called
+*respondents_details
+*phones_label_*
+*phonenumber_called
 id1a
 id1b
-other_phone
-name_phone
-name_ph?
-rel_ph?
-primary_phone
-respondent_name
-best_phone
+*other_phone
+*name_phone
+*name_ph?
+*rel_ph?
+*primary_phone
+*respondent_name
+*best_phone
 z2 
 z1_text
 ;
