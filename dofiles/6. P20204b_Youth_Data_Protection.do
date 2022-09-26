@@ -11,10 +11,10 @@
 
 use "$corrections\/${form_title}.dta", clear
 preserve
-keep $unique_id $personal_info
+keep $unique_id full_name id1a id1b z2 z1_text
 save "$pii_link\piilink_obs.dta", replace
 restore
-drop $personal_info
+drop full_name id1a id1b z2 z1_text
 save "$data_anon\/${form_title}_NoPII.dta", replace 
 
 

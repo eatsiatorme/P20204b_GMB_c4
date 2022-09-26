@@ -26,7 +26,7 @@ global i=5
 */
 	global i=1
 	use "${form_title}", clear
-	gen error=${i} if duration_m<10 & call_status==1
+	gen error=${i} if duration_m<10 & status==1
 	gen duration_m_str = string(duration_m , "%2.1f") // find a better solution for this - decimals -> string in the addErr programe
 	global keepvar "duration_m_str"
 	addErr "Completed interview was less than 10 minutes - Send for back-check"
@@ -34,11 +34,11 @@ global i=5
 	global i=2
 	use "${form_title}", clear
 	gen time_diff = abs(clockdiff(time_start, timestamp_visit_cet, "minute"))
-	gen error=${i} if time_diff>30 & call_status==1
+	gen error=${i} if time_diff>30 & status==1
 	global keepvar "time_diff"
 	addErr "Entered time is more than 30 minutes from the secret time - Send for back-check"
 	
-	/*
+	
 	global i=3
 	use "${form_title}", clear
 	keep z1 ApplicantID loclatitude loclongitude localtitude locaccuracy submissiondate z2
@@ -61,7 +61,7 @@ global i=5
 	addErr "Less than 100 metres away from another interview by enumerator - Send for back-check"
 	}
 	
-	*/
+	
 	
 	global i=4
 	use "${form_title}", clear
@@ -132,9 +132,9 @@ global i=5
 	
 	global i=13
 	use "${form_title}", clear
-	gen error=${i} if phone_call_duration_m<15 & call_status==1
-	gen phone_call_duration_m_str = string(phone_call_duration_m, "%2.1f")
-	global keepvar "phone_call_duration_m_str"
+	gen error=${i} if duration_m<15 & status==1
+	gen duration_m_str = string(duration_m, "%2.1f")
+	global keepvar "duration_m_str"
 	addErr "Completed Interview that lasted less than 15 minutes"
 	
 	global i=14
@@ -153,13 +153,13 @@ global i=5
 	*use "${form_title}", clear
 	*gen error=${i} if ApplicantID== 300582
 	*addErr "Test2"	
-	
+	/*
 	global i=17
 	use "${form_title}", clear
 	gen error=${i} if !(strpos(l10, "@")) & l7==1
 	global keepvar "l10"
 	addErr "Email Address doesn't contain an @'"	
-	
+	*/
 	global i=18
 	use "${form_title}", clear
 	gen recorded_name=id1a+" "+id1b
@@ -171,13 +171,13 @@ global i=5
 	
 	global i=19
 	use "${form_title}", clear
-	gen error=${i} if id2 > 35 & call_status==1
+	gen error=${i} if id2 > 35 & status==1
 	global keepvar "id2"
 	addErr "Age is greater than 35 - check against BL data"	
 	
 	global i=20
 	use "${form_title}", clear
-	gen ig=(c2<0 | c1_normal<0 | c4<0) | call_status!=1 | c1==0
+	gen ig=(c2<0 | c1_normal<0 | c4<0) | status!=1 | c1==0
 	gen error=${i} if (c2>c1_normal | c1_normal>c4 | c2>c4)  & ig==0
 	global keepvar "ig"
 	addErr "Inconsistency in bad - normal - good months"
@@ -188,14 +188,14 @@ global i=5
 	gen error=${i} if daily_avg > 15
 	addErr "Completing more than an average of 15 interviews in a day"
 */
-/*
+
 	global i=5
-	use $main_table, clear
-	gen error=${i} if pct_conversation<0.2 & call_status==1
+	use "${form_title}", clear
+	gen error=${i} if pct_conversation<0.2 & status==1
 	gen pct_conversation_str = string(pct_conversation, "%2.1f")
 	global keepvar "pct_conversation_str"
 	addErr "Low pitch recording for conversation - Send for back-check"
-*/
+
 		
 
 *****************************************************************************************************************	
