@@ -42,6 +42,7 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
+drop if key == "uuid:e9401da9-542f-465a-a451-8be46ec55406"
 
 
 ******************************
