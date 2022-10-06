@@ -1334,6 +1334,14 @@ cap drop enum_ID
 gen enum_ID = z1
 lab var enum_ID "Enumerator ID"
 
+**Generate variable to check daily interview completion
+gen datedaily = dofc(submissiondate)
+egen tag = tag (z1 datedaily) if complete == 1
+egen days_worked = total(tag), by(z1)
+bys z1: gen total_surveys_done = _N
+gen daily_avg = round(total_surveys_done/days_worked, .01) 
+*tabdisp z1, c(days_worked total_surveys_done daily_avg) format(%9.2f) center
+
 **************************************************************
 * To understand better who actualy belongs to treatment group, respondents who were expected to be part of the treatment group but indicated during the midline indicated that they did not participate in the training were questioned again about the participation by rephrasing the equation. 
 **************************************************************
