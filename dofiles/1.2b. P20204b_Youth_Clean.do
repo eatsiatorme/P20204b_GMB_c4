@@ -32,6 +32,23 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
+
+local deletepathexp = "$exported\media"
+local files : dir "`deletepathexp'" file "Comments-95f84807-3555-409a-b708-28bb0bcec610.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local deletepathexp = "$exported\media"
+local files : dir "`deletepathexp'" file "Comments-42ff8c5d-8e01-4eeb-b83c-5cadd99e8955.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
 // IN FUTURE FOR HFC MERGE NEED TO
 	// MAKE A BREAK IF ERROR DUPLICATES THAT PROVIDES INFO
 	// INCLUDE DIFFERENTIATOR OF COMMENT VALUE FOR COMMENTS ON THE SAME VARIABLE - OR CONCAT IN THE CLEANING?
@@ -42,6 +59,65 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
+
+local files : dir "`deletepathexp'" file "Comments-95f84807-3555-409a-b708-28bb0bcec610.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-451a88c2-8a61-44e7-92b9-bac5848a62f2.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-4f1a5453-4abb-44b0-94f3-a8d0346b1d28.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-7ba8653e-dff6-4e37-a937-c5bef86b44c3.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-274ccc26-f0ab-41b2-abe7-b4d7ec37f49d.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-1811ed82-53d3-4381-9045-2c8bbe6bdc27.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-3465a01b-5698-49f6-a5da-cbcddecf72c5.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-a5ee6c34-bad5-44c5-8a8f-f3df1925ad6c.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
 
 
 ******************************
@@ -1340,6 +1416,7 @@ egen tag = tag (z1 datedaily) if complete == 1
 egen days_worked = total(tag), by(z1)
 bys z1: gen total_surveys_done = _N
 gen daily_avg = round(total_surveys_done/days_worked, .01) 
+
 *tabdisp z1, c(days_worked total_surveys_done daily_avg) format(%9.2f) center
 
 **************************************************************
