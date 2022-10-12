@@ -108,6 +108,8 @@ forvalues i = 1/15 {
 	putexcel I`rowx'=`r(mean)', nformat(number_d2)
 	su days_worked if ${enumerator_id}==`i'
 	putexcel J`rowx'=`r(mean)', nformat(number_d2)
+	su avgb1 if ${enumerator_id}==`i'
+	putexcel k`rowx'=`r(mean)', nformat(number_d2)
 	}
 	
 }
@@ -173,6 +175,8 @@ forvalues i = 1/15 {
 	putexcel I`rowx'=`r(mean)', nformat(number_d2)
 	su days_worked if ${enumerator_id}==`i'
 	putexcel J`rowx'=`r(mean)', nformat(number_d2)
+	su avgb1 if ${enumerator_id}==`i'
+	putexcel k`rowx'=`r(mean)', nformat(number_d2)
 	}
 	
 }

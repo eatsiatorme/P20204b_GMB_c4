@@ -120,6 +120,14 @@ foreach file in `files'{
 }
 
 
+local files : dir "`deletepathexp'" file "Comments-6fb9b7de-1d15-4056-bed6-61c5a4bc5d28.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
 ******************************
 ** 1. COPY EXPORTED FILES TO CLEANING
 ******************************
@@ -1418,6 +1426,9 @@ bys z1: gen total_surveys_done = _N
 gen daily_avg = round(total_surveys_done/days_worked, .01) 
 
 *tabdisp z1, c(days_worked total_surveys_done daily_avg) format(%9.2f) center
+
+
+bysort z1: egen avgb1 = mean(b1) //Generate average response of response to stable job question b1
 
 **************************************************************
 * To understand better who actualy belongs to treatment group, respondents who were expected to be part of the treatment group but indicated during the midline indicated that they did not participate in the training were questioned again about the participation by rephrasing the equation. 
