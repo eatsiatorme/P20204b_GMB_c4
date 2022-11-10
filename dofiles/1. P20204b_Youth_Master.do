@@ -18,10 +18,10 @@ global tool "Youth"
 * SETTINGS
 ********************************************************************************
 global review = 0
-global hfc = 1
-global data_progress = 1
-global bc = 1
-global trends = 1
+global hfc = 0
+global data_progress = 0
+global bc = 0
+global trends = 0
 ********************************************************************************
 ** FIXED GLOBALS (DO NOT EDIT)
 ********************************************************************************
