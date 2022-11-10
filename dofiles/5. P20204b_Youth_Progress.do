@@ -1,12 +1,15 @@
+
 import excel using "$qx", clear first sheet("choices")  
 
 count if list_name=="enumerator"
 local num_enums = `r(N)'
 
 keep if list_name=="enumerator"
+destring value, replace
 sort value
 levelsof label, l(l_enum)
 
+/*
 putexcel set "$progress\Data Progress.xlsx", modify sheet("enumerator summary")
 local row = 3
 foreach l of local l_enum {
@@ -14,7 +17,7 @@ foreach l of local l_enum {
 		putexcel A`row'= "`l'" 
 		local row = `row'+1
 }
-
+*/
 
 
 ********************************************************************************
@@ -93,7 +96,7 @@ putexcel B`row'=matrix(y)
 
 fre ${enumerator_id} duration_m
 local row = 2
-forvalues i = 1/10 {
+forvalues i = 1/15 {
 	local rowx = `row'+`i'
 	count if ${enumerator_id}==`i' & complete==1
 	if `r(N)' > 0 {
@@ -101,6 +104,12 @@ forvalues i = 1/10 {
 	putexcel H`rowx'=`r(mean)', nformat(number)
 	su complete if ${enumerator_id}==`i'
 	putexcel G`rowx'=`r(mean)', nformat(number_d2)
+	su daily_avg if ${enumerator_id}==`i'
+	putexcel I`rowx'=`r(mean)', nformat(number_d2)
+	su days_worked if ${enumerator_id}==`i'
+	putexcel J`rowx'=`r(mean)', nformat(number_d2)
+	su avgb1 if ${enumerator_id}==`i'
+	putexcel k`rowx'=`r(mean)', nformat(number_d2)
 	}
 	
 }
@@ -154,7 +163,7 @@ putexcel B`row'=matrix(y)
 
 fre ${enumerator_id} duration_m
 local row = 2
-forvalues i = 1/10 {
+forvalues i = 1/15 {
 	local rowx = `row'+`i'
 	count if ${enumerator_id}==`i' & complete==1
 	if `r(N)' > 0 {
@@ -162,6 +171,12 @@ forvalues i = 1/10 {
 	putexcel H`rowx'=`r(mean)', nformat(number)
 	su complete if ${enumerator_id}==`i'
 	putexcel G`rowx'=`r(mean)', nformat(number_d2)
+	su daily_avg if ${enumerator_id}==`i'
+	putexcel I`rowx'=`r(mean)', nformat(number_d2)
+	su days_worked if ${enumerator_id}==`i'
+	putexcel J`rowx'=`r(mean)', nformat(number_d2)
+	su avgb1 if ${enumerator_id}==`i'
+	putexcel k`rowx'=`r(mean)', nformat(number_d2)
 	}
 	
 }

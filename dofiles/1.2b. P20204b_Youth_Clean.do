@@ -32,6 +32,23 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
+
+local deletepathexp = "$exported\media"
+local files : dir "`deletepathexp'" file "Comments-95f84807-3555-409a-b708-28bb0bcec610.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local deletepathexp = "$exported\media"
+local files : dir "`deletepathexp'" file "Comments-42ff8c5d-8e01-4eeb-b83c-5cadd99e8955.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
 // IN FUTURE FOR HFC MERGE NEED TO
 	// MAKE A BREAK IF ERROR DUPLICATES THAT PROVIDES INFO
 	// INCLUDE DIFFERENTIATOR OF COMMENT VALUE FOR COMMENTS ON THE SAME VARIABLE - OR CONCAT IN THE CLEANING?
@@ -43,6 +60,119 @@ foreach file in `files'{
 }
 
 drop if key == "uuid:e9401da9-542f-465a-a451-8be46ec55406"
+
+local files : dir "`deletepathexp'" file "Comments-95f84807-3555-409a-b708-28bb0bcec610.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-451a88c2-8a61-44e7-92b9-bac5848a62f2.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-4f1a5453-4abb-44b0-94f3-a8d0346b1d28.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-7ba8653e-dff6-4e37-a937-c5bef86b44c3.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-274ccc26-f0ab-41b2-abe7-b4d7ec37f49d.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-1811ed82-53d3-4381-9045-2c8bbe6bdc27.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-3465a01b-5698-49f6-a5da-cbcddecf72c5.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-a5ee6c34-bad5-44c5-8a8f-f3df1925ad6c.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-6fb9b7de-1d15-4056-bed6-61c5a4bc5d28.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-2b577d17-0ad8-4289-a8d1-321fff02a883.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-390fd814-3d50-440c-a4b3-49dffac552e0", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-d5074af9-740c-4e56-b767-dfc4c8255c4b.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-530f08b3-0004-4c13-80e3-991888e508df.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-390fd814-3d50-440c-a4b3-49dffac552e0.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-6b08734a-a90b-4991-8bca-614e2522d44a.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
 
 
 ******************************
@@ -1334,6 +1464,18 @@ b30_2
 cap drop enum_ID
 gen enum_ID = z1
 lab var enum_ID "Enumerator ID"
+
+**Generate variable to check daily interview completion
+gen datedaily = dofc(submissiondate)
+egen tag = tag (z1 datedaily) if complete == 1
+egen days_worked = total(tag), by(z1)
+bys z1: gen total_surveys_done = _N
+gen daily_avg = round(total_surveys_done/days_worked, .01) 
+
+*tabdisp z1, c(days_worked total_surveys_done daily_avg) format(%9.2f) center
+
+
+bysort z1: egen avgb1 = mean(b1) //Generate average response of response to stable job question b1
 
 **************************************************************
 * To understand better who actualy belongs to treatment group, respondents who were expected to be part of the treatment group but indicated during the midline indicated that they did not participate in the training were questioned again about the participation by rephrasing the equation. 
