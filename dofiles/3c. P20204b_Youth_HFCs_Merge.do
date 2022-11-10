@@ -409,9 +409,9 @@ ex
 
 ********************************************************************************
 * CREATING BACK CHECK
-********************************************************************************
+*******************************************************************************
 
-import excel "$hfc_output\Checking_List_Backcheck.xlsx", clear firstrow cellrange(B2)
+import excel "$data_quality\05_output\Checking_List_Backcheck.xlsx", clear firstrow cellrange(B2)
 *keep bc_counter error_counter
 *drop scto_link
 su bc_counter
@@ -423,7 +423,7 @@ if `bc_check'>0 {
 }
 
 
-import excel "$hfc_output\Checking_List.xlsx", clear firstrow cellrange(A2)
+import excel "$$data_quality\05_output\Checking_List.xlsx", clear firstrow cellrange(A2)
 
 capture confirm string variable Action
 			if _rc == 0 {

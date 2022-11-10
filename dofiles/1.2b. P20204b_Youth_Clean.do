@@ -127,6 +127,52 @@ foreach file in `files'{
 	capture erase "`fileandpathtodelete'"
 }
 
+local files : dir "`deletepathexp'" file "Comments-2b577d17-0ad8-4289-a8d1-321fff02a883.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-390fd814-3d50-440c-a4b3-49dffac552e0", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-d5074af9-740c-4e56-b767-dfc4c8255c4b.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-530f08b3-0004-4c13-80e3-991888e508df.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+local files : dir "`deletepathexp'" file "Comments-390fd814-3d50-440c-a4b3-49dffac552e0.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
+local files : dir "`deletepathexp'" file "Comments-6b08734a-a90b-4991-8bca-614e2522d44a.csv", respectcase	
+foreach file in `files'{	
+	local fileandpathtodelete = "`deletepathexp'"+"\"+"`file'"
+	di "`fileandpathtodelete'"
+	capture erase "`fileandpathtodelete'"
+}
+
+
 
 ******************************
 ** 1. COPY EXPORTED FILES TO CLEANING
