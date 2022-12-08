@@ -410,6 +410,17 @@ else {
 
 }
 
+*****************************
+*Corrections from field
+replace b18_a_1 = 0 if ApplicantID==200680
+replace b18_1 = . if ApplicantID == 200680
+replace b18_unit_1 =. if ApplicantID == 200680
+replace b18_unit_val_1 = "" if ApplicantID == 200680
+replace b18_daily_1 = "" if ApplicantID == 200680
+*replace emp_inkind_month_1 = . if ApplicantID == 200680
+
+**********************************************************************************
+
 
 
 **************************************************

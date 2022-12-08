@@ -31,8 +31,8 @@ foreach file of local files{
 * 2. MAIN TABLE
 ********************************************************************************
 use "$corrections\/$form_title", clear
-
 di "HELLO"
+
 
 replace c2 = 1500 if ApplicantID == 300015
 ****MALANG CAMARA
